@@ -2,13 +2,15 @@
 
 ### You will find in this repo the folling stuff:
 
-### [flower-power](/flower-power)
+### [myproject website](https://floc202.github.io/MyProjectCode/)
 
-### [flower Theme](/flowerstheme)
+### [flower-power](MyProjectCode/flower-power)
 
-### [Do You Love Me ?](/doyouloveme)
+### [flower Theme](MyProjectCode/flowers_theme)
 
-### [Couplelink](/couplelink)
+### [Do You Love Me ?](MyProjectCode/doyouloveme)
+
+### [Couplelink](MyProjectCode/couplelink)
 
 These are partly products I researched from many sources
 \*HTML, JavaScript,CSS,...
