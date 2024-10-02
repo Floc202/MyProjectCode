@@ -4,13 +4,13 @@
 
 ### [myproject website](https://floc202.github.io/MyProjectCode/)
 
-### [flower-power](MyProjectCode/flower-power)
+### [flower-power](flower-power)
 
-### [flower Theme](MyProjectCode/flowers_theme)
+### [flower Theme](flowers_theme)
 
-### [Do You Love Me ?](MyProjectCode/doyouloveme)
+### [Do You Love Me ?](doyouloveme)
 
-### [Couplelink](MyProjectCode/couplelink)
+### [Couplelink](couplelink)
 
 These are partly products I researched from many sources
 \*HTML, JavaScript,CSS,...
