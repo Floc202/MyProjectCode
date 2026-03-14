@@ -1,16 +1,8 @@
-# Valentine Website Completion TODO
+# TODO: Add Open Graph meta tags to index.html for better link sharing
 
-## Status: In Progress
+## Steps:
+- [x] Step 1: Create this TODO.md
+- [x] Step 2: Edit index.html to add og:title, og:description, og:video meta tags
+- [x] Step 3: Update TODO.md with completion status
+- [x] Step 4: Test local server and complete task
 
-- [x] 1. Create assets/ directory and placeholder files (music.mp3, images/bg.jpg)
-- [x] 2. Create style.css (styles, animations, layering, running button)
-- [x] 3. Create script.js (music, interactions, hearts, logic)
-- [x] 4. Create index.html (structure, greeting, question, buttons)
-- [x] 5. Test locally (open index.html)
-- [x] 6. Mark complete
-
-## Status: ✅ Complete!
-
-Project matches README specs: romantic theme, floating hearts, music, "No" runs away, "Yes" celebrates.
-Open index.html in browser to experience.
-Optional: Replace music URL in script.js with custom mp3.
