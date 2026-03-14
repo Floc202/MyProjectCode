@@ -13,7 +13,9 @@ body {
     height: 100vh;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-family: 'Dancing Script', cursive;
     color: #ff69b4;
 }
@@ -68,11 +70,25 @@ h1, h2, h3 {
 }
 
 @keyframes heartbeat {
-    0% { transform: scale(1); }
-    14% { transform: scale(1.3); }
-    28% { transform: scale(1); }
-    42% { transform: scale(1.3); }
-    70% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+
+    14% {
+        transform: scale(1.3);
+    }
+
+    28% {
+        transform: scale(1);
+    }
+
+    42% {
+        transform: scale(1.3);
+    }
+
+    70% {
+        transform: scale(1);
+    }
 }
 
 #preloader p {
@@ -96,8 +112,10 @@ h1, h2, h3 {
     visibility: hidden;
     transition: all 0.5s ease;
     overflow-y: auto;
+    overflow-x: hidden;
     padding-top: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 100px;
+    /* Increased to account for fixed nav buttons */
 }
 
 .page.active {
@@ -109,10 +127,23 @@ h1, h2, h3 {
     max-width: 90%;
     padding: 20px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    /* Ensure it takes up enough height to vertically center items */
 }
 
-h1 { font-size: 2.5rem; margin-bottom: 20px; }
-h2 { font-size: 2rem; margin-bottom: 30px; }
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
 
 /* Counter */
 .counter {
@@ -133,10 +164,10 @@ h2 { font-size: 2rem; margin-bottom: 30px; }
 }
 
 .timeline-item {
-    background: rgba(255,255,255,0.8);
+    background: rgba(255, 255, 255, 0.8);
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 /* Gallery */
@@ -157,7 +188,7 @@ h2 { font-size: 2rem; margin-bottom: 30px; }
     border-radius: 15px;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     display: block;
 }
 
@@ -168,16 +199,17 @@ h2 { font-size: 2rem; margin-bottom: 30px; }
 .gallery img:hover,
 .gallery video:hover {
     transform: scale(1.05);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
 
- /* Love Cards */
+/* Love Cards */
 .love-cards {
-    display: grid;
-
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 20px;
-    max-width: 800px;
+    width: 100%;
+    max-width: 400px;
     margin: 30px auto;
 }
 
@@ -198,7 +230,8 @@ h2 { font-size: 2rem; margin-bottom: 30px; }
     transform: rotateY(180deg);
 }
 
-.card-front, .card-back {
+.card-front,
+.card-back {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -208,18 +241,19 @@ h2 { font-size: 2rem; margin-bottom: 30px; }
     justify-content: center;
     padding: 20px;
     border-radius: 15px;
-    background: rgba(255,182,231,0.9);
+    background: rgba(255, 182, 231, 0.9);
     font-size: 0.9rem;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .card-back {
     transform: rotateY(180deg);
-    background: rgba(233,221,255,0.9);
+    background: rgba(233, 221, 255, 0.9);
 }
 
 /* Buttons */
 .btn {
+    height: 60px;
     background: #ff69b4;
     color: white;
     border: none;
@@ -230,17 +264,40 @@ h2 { font-size: 2rem; margin-bottom: 30px; }
     transition: all 0.3s ease;
     font-family: 'Poppins', sans-serif;
     margin: 10px;
-    box-shadow: 0 5px 15px rgba(255,105,180,0.4);
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
 }
 
 .btn:hover {
     background: #ff1493;
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(255,105,180,0.6);
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.6);
 }
 
 .nav-buttons {
-    margin-top: 40px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    z-index: 100;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.9), transparent);
+    padding: 20px 0;
+}
+
+#nav-page7 {
+    position: relative;
+    background: transparent;
+    padding: 0;
+    margin-top: 50px;
+    opacity: 0;
+    transition: opacity 1s ease;
+    z-index: 10;
+}
+
+#nav-page7.visible {
+    opacity: 1;
 }
 
 /* Floating Hearts */
@@ -266,6 +323,7 @@ h2 { font-size: 2rem; margin-bottom: 30px; }
         transform: translateY(100vh) rotate(0deg);
         opacity: 1;
     }
+
     100% {
         transform: translateY(-100px) rotate(360deg);
         opacity: 0;
@@ -274,10 +332,22 @@ h2 { font-size: 2rem; margin-bottom: 30px; }
 
 /* Responsive */
 @media (max-width: 480px) {
-    h1 { font-size: 2rem; }
-    h2 { font-size: 1.6rem; }
-    .counter { font-size: 3rem; }
-    .gallery img, .gallery video { height: 120px; }
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    .counter {
+        font-size: 3rem;
+    }
+
+    .gallery img,
+    .gallery video {
+        height: 120px;
+    }
 }
 
 /* Fireworks canvas */
@@ -289,4 +359,475 @@ h2 { font-size: 2rem; margin-bottom: 30px; }
     height: 100%;
     pointer-events: none;
     z-index: 999;
+}
+
+/* Page 7 Specifics */
+#page7-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#background-blur {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../images/image1.jpg') no-repeat center center / cover;
+    filter: blur(8px);
+    z-index: 0;
+}
+
+#overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+    transition: background-color 0.2s ease;
+}
+
+#overlay.flash {
+    background: rgba(255, 235, 245, 0.9);
+    /* Bright pinkish-white flash */
+}
+
+#giftText {
+    font-size: 1.5rem;
+    min-height: 80px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#giftBox {
+    font-size: 8rem;
+    cursor: pointer;
+    display: inline-block;
+    transition: transform 0.2s;
+    line-height: 1;
+}
+
+#giftBox.shake {
+    animation: shakeSmooth 1.2s infinite ease-in-out;
+}
+
+@keyframes shakeSmooth {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    15% {
+        transform: translate(-5px, 0) rotate(-5deg);
+    }
+
+    30% {
+        transform: translate(5px, 0) rotate(5deg);
+    }
+
+    45% {
+        transform: translate(-5px, 0) rotate(-5deg);
+    }
+
+    60% {
+        transform: translate(5px, 0) rotate(5deg);
+    }
+
+    75% {
+        transform: translate(-5px, 0) rotate(-5deg);
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+/* Custom Particle Burst */
+.custom-particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: #ff69b4;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+#birthdayCake {
+    font-size: 8rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    line-height: 0.5;
+    margin: 0 auto;
+    transition: all 1s ease;
+}
+
+#birthdayCake.blur-bg {
+    filter: blur(10px);
+    opacity: 0.3;
+    transform: scale(0.8);
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    margin-left: -90px;
+    z-index: 0;
+    pointer-events: none;
+}
+
+#candlePrompt {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+#candle {
+    position: relative;
+    top: -5px;
+    width: 12px;
+    height: 40px;
+    background: #ffcc00;
+    cursor: pointer;
+    border-radius: 4px;
+    z-index: 2;
+    margin-bottom: -15px;
+    /* Pull the cake emoji up tightly */
+}
+
+#candle::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 10%;
+    width: 80%;
+    height: 3px;
+    background: #e6b800;
+}
+
+#candle::after {
+    content: '';
+    position: absolute;
+    top: 18px;
+    left: 10%;
+    width: 80%;
+    height: 3px;
+    background: #e6b800;
+}
+
+#candleFlame {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 24px;
+    background: #ff8c00;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    box-shadow: 0 0 10px #ff8c00, 0 0 20px #ff6600, 0 0 30px #ffcc00;
+    animation: flickerDynamic 0.15s infinite alternate;
+}
+
+@keyframes flickerDynamic {
+    0% {
+        transform: translateX(-50%) scaleY(1);
+        opacity: 0.9;
+        filter: blur(1px);
+    }
+
+    50% {
+        transform: translateX(-50%) scaleY(1.1);
+        opacity: 1;
+        filter: blur(0px);
+    }
+
+    100% {
+        transform: translateX(-50%) scaleY(0.9);
+        opacity: 0.8;
+        filter: blur(2px);
+    }
+}
+
+/* Smoke animation (SVG) container */
+.smoke-container {
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 50px;
+    opacity: 0;
+    pointer-events: none;
+    animation: smokeRiseSvg 2s forwards;
+}
+
+@keyframes smokeRiseSvg {
+    0% {
+        transform: translateX(-50%) translateY(0) scale(1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateX(calc(-50% + 20px)) translateY(-60px) scale(2);
+        opacity: 0;
+    }
+}
+
+#birthdayTitle {
+    font-size: 42px;
+    color: #fff;
+    text-shadow:
+        0 0 10px #ff69b4,
+        0 0 20px #ff69b4,
+        0 0 30px #ff1493,
+        0 0 40px #ff1493,
+        0 0 70px #c71585,
+        0 0 80px #c71585,
+        0 0 100px #c71585,
+        0 0 150px #c71585;
+    margin-bottom: 20px;
+    animation: glow-pulse 2s infinite alternate;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes glow-pulse {
+    0% {
+        text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4, 0 0 30px #ff1493;
+    }
+
+    100% {
+        text-shadow: 0 0 20px #ff69b4, 0 0 40px #ff1493, 0 0 80px #c71585, 0 0 100px #c71585;
+    }
+}
+
+.letter-paper {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px 20px;
+    border-radius: 20px;
+    margin: 20px auto;
+    max-width: 90%;
+    width: 400px;
+    text-align: left;
+    min-height: 150px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    position: relative;
+    z-index: 2;
+}
+
+#birthdayLetter {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Vouchers Stack (The Card Deck) */
+.vouchers-stack {
+    position: relative;
+    height: 5px;
+    /* Further reduced height to stop background bleed */
+    width: 250px;
+    margin: 40px auto 100px;
+    /* Tăng margin-top để cáchXa lá thư chân thư */
+    perspective: 1000px;
+    z-index: 2;
+}
+
+.voucher-card {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(200px);
+    /* Start completely off-screen or below */
+    transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: pointer;
+    z-index: calc(10 - var(--i));
+    width: 250px;
+    height: 100px;
+    /* Make cards slightly shorter to fit all 5 */
+}
+
+.voucher-card .card-inner {
+    width: 250px;
+    height: 100px;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+/* Ensure showVouchersBtn doesn't overlap navs */
+#showVouchersBtn {
+    margin-bottom: 50px;
+    position: relative;
+    z-index: 10;
+}
+
+.voucher-card .card-front {
+    background: #e9ddff;
+    /* Pastel Purple */
+    color: #ff69b4;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: 2px dashed #ff69b4;
+}
+
+.voucher-card .card-back {
+    background: #ffd6e7;
+    /* Pastel Pink */
+    color: #d10068;
+    font-size: 1rem;
+    border: 2px solid #ff69b4;
+    transform: rotateY(180deg);
+}
+
+/* Stage 1: Fly to center stacked */
+.vouchers-stack.fly-in .voucher-card {
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Stage 2: Fan out vertically */
+.vouchers-stack.spread .voucher-card {
+    /* Compress the fan out so it fits Mobile screens. 25px offset instead of 35px */
+    transform: translateX(-50%) translateY(calc((var(--i) - 1) * 25px)) !important;
+}
+
+/* Hover slightly pull out */
+.vouchers-stack.spread .voucher-card:hover {
+    z-index: 20;
+    transform: translateX(-55%) translateY(calc((var(--i) - 1) * 25px - 10px)) rotate(-2deg) !important;
+}
+
+/* Stage 8: Transition & The Wish Rain */
+.fade-out-down {
+    opacity: 0 !important;
+    transform: translateY(20px) !important;
+    pointer-events: none !important;
+    transition: all 1.5s ease !important;
+}
+
+#final-stage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#wishRainContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.wish-particle {
+    position: absolute;
+    top: -20px;
+    font-size: 1.2rem;
+    pointer-events: none;
+    animation: rainFall linear forwards;
+}
+
+@keyframes rainFall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}
+
+.touch-message {
+    position: absolute;
+    font-family: 'Dancing Script', cursive;
+    color: #ff69b4;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 0 0 5px white, 0 0 10px white;
+    pointer-events: none;
+    z-index: 100;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    animation: floatTouch 1.5s ease-out forwards;
+}
+
+@keyframes floatTouch {
+    0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0;
+    }
+
+    20% {
+        transform: translate(-50%, -70%) scale(1.2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -150%) scale(1);
+        opacity: 0;
+    }
+}
+
+#finalMessage {
+    font-size: 2.5rem;
+    padding: 0 20px;
+    opacity: 0;
+    transition: opacity 3s ease-in-out;
+    z-index: 2;
+    text-align: center;
+}
+
+#nav-page7-final {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) scale(0.7);
+    /* Th nhỏ nút và căn giữa dưới */
+    transform-origin: center bottom;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    width: auto;
+    /* Reset width to auto so it doesn't stretch 100% */
+    opacity: 0;
+    transition: opacity 2s ease;
+    z-index: 10;
+    pointer-events: auto;
+    /* Re-enable pointer events since container is none */
+}
+
+#nav-page7-final .btn {
+    margin: 0;
+    /* Remove baseline margin to sit perfectly */
+}
+
+#nav-page7-final.visible {
+    opacity: 0.6;
+    /* Làm mờ nút */
 }

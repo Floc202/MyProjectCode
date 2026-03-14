@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday Bé Nấm ❤️</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <!-- Preloader -->
     <div id="preloader">
@@ -20,7 +24,7 @@
         <div class="content">
             <h1 data-aos="fade-up">Hi Bé Nấm ❤️</h1>
             <p id="welcome-text"></p>
-            <button id="start-btn" class="btn">Bắt đầu nào!</button>
+            <button id="start-btn" class="btn" style="display: none;">Bắt đầu nào!</button>
         </div>
     </section>
 
@@ -84,11 +88,11 @@
                 </div>
                 <div class="timeline-item" data-aos="fade-right">
                     <h3>23/11/2025</h3>
-                    <p>Em chuyển về anh.</p>
+                    <p>Em chuyển về gần anh hơn.</p>
                 </div>
                 <div class="timeline-item" data-aos="fade-left">
                     <h3>08/01/2026</h3>
-                    <p>Em nghỉ việc tại cái cty live bóc lột đó.</p>
+                    <p>Cùng em nói xấu cái cty live vắt kiệt đó.</p>
                 </div>
                 <div class="timeline-item" data-aos="fade-right">
                     <h3>16/01/2026</h3>
@@ -100,7 +104,7 @@
                 </div>
                 <div class="timeline-item" data-aos="fade-right">
                     <h3>07/03/2026</h3>
-                    <p>Em cũng biết anh lấy cớ lấy lòng phụ nữ tặng hoa.</p>
+                    <p>Cùng em đón 8/3 sớm.</p>
                 </div>
                 <div class="timeline-item" data-aos="fade-left">
                     <h3>../../..</h3>
@@ -129,7 +133,7 @@
     <!-- Page 5: Things I Love -->
     <section id="page5" class="page">
         <div class="content">
-            <h2 data-aos="fade-up">Những điều anh thích ở Bé Nấm</h2>
+            <h2 data-aos="fade-up">Cái này là để Bé Nấm biết anh yêu em nhiều như thế nào</h2>
             <div class="love-cards">
                 <div class="card" data-aos="flip-left">
                     <div class="card-inner">
@@ -157,8 +161,14 @@
                 </div>
                 <div class="card" data-aos="flip-left">
                     <div class="card-inner">
-                        <div class="card-front">Tính cách dễ thương</div>
+                        <div class="card-front">Dễ thương</div>
                         <div class="card-back">Không ai bằng</div>
+                    </div>
+                </div>
+                <div class="card" data-aos="flip-left">
+                    <div class="card-inner">
+                        <div class="card-front">Cả một bầu trời</div>
+                        <div class="card-back">Thương yêu</div>
                     </div>
                 </div>
                 <!-- Add more as per README -->
@@ -175,7 +185,7 @@
         <div class="content">
             <h2 data-aos="fade-up">Thư tình gửi Bé Nấm</h2>
             <p id="letter-text"></p>
-            <nav class="nav-buttons">
+            <nav class="nav-buttons" id="nav-page6" style="display: none;">
                 <button class="btn prev">Trước</button>
                 <button class="btn next">Tiếp</button>
             </nav>
@@ -184,13 +194,80 @@
 
     <!-- Page 7: Birthday Surprise -->
     <section id="page7" class="page">
-        <div class="content">
-            <h2 data-aos="fade-up">Mở quà sinh nhật của bé nào 🎁</h2>
-            <button id="birthday-btn" class="btn">Mở quà!</button>
-            <p id="birthday-msg" style="display:none;">Happy Birthday Bé Nấm 🎂<br>Cảm ơn bé vì đã xuất hiện trong cuộc đời anh.</p>
-            <nav class="nav-buttons">
-                <button class="btn" onclick="replay()">Replay Story</button>
-            </nav>
+        <!-- Exact Spec Structure -->
+        <div id="page7-container">
+            <div id="background-blur"></div>
+            <div id="overlay"></div>
+
+            <div class="content" style="z-index: 2; position: relative;">
+                <div id="mystery-stage">
+                    <p id="giftText"></p>
+                    <div id="giftBox" style="display: none;">🎁</div>
+                </div>
+
+                <div id="ritual-stage" style="display: none;">
+                    <div id="candlePrompt">Bé Hãy chạm vào cây nến để thổi nến nhé</div>
+                    <div id="birthdayCake">
+                        <div class="candle" id="candle">
+                            <div id="candleFlame"></div>
+                        </div>
+                        🎂
+                    </div>
+                </div>
+
+                <div id="celebration-stage" style="display: none;">
+                    <h2 id="birthdayTitle" class="glow-text">Happy Birthday Bé Nấm 🎂</h2>
+                </div>
+
+                <div id="message-stage" style="display: none;">
+                    <div class="letter-paper">
+                        <div id="birthdayLetter"></div>
+                    </div>
+                    <button id="showVouchersBtn" class="btn" style="display: none;">Quà dành cho Bé Nấm 🎁</button>
+                </div>
+
+                <div id="voucher-stage" style="display: none;">
+                    <div id="vouchers-stack" class="vouchers-stack">
+                        <div class="card voucher-card" style="--i: 5;">
+                            <div class="card-inner">
+                                <div class="card-front">Voucher Tình Yêu</div>
+                                <div class="card-back">1 buổi đi shopping 👗</div>
+                            </div>
+                        </div>
+                        <div class="card voucher-card" style="--i: 4;">
+                            <div class="card-inner">
+                                <div class="card-front">Voucher Tình Yêu</div>
+                                <div class="card-back">1 chầu ăn sập Sài Gòn 🍲</div>
+                            </div>
+                        </div>
+                        <div class="card voucher-card" style="--i: 3;">
+                            <div class="card-inner">
+                                <div class="card-front">Voucher Tình Yêu</div>
+                                <div class="card-back">1 nghìn cái ôm 🤗</div>
+                            </div>
+                        </div>
+                        <div class="card voucher-card" style="--i: 2;">
+                            <div class="card-inner">
+                                <div class="card-front">Voucher Tình Yêu</div>
+                                <div class="card-back">1 ly trà sữa full topping 🧋</div>
+                            </div>
+                        </div>
+                        <div class="card voucher-card" style="--i: 1;">
+                            <div class="card-inner">
+                                <div class="card-front">Voucher Tình Yêu</div>
+                                <div class="card-back">1 đêm xem phim netflix 🎬</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="final-stage" style="display: none;">
+                    <div id="wishRainContainer"></div>
+                    <h2 id="finalMessage" class="glow-text">Cảm ơn em đã xuất hiện trong cuộc đời anh.</h2>
+                    <nav class="nav-buttons" id="nav-page7-final" style="display: none;">
+                        <button class="btn" onclick="replay()">Xem lại từ đầu</button>
+                    </nav>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -199,4 +276,5 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
     <script src="js/script.js"></script>
 </body>
+
 </html>
